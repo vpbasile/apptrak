@@ -1,0 +1,305 @@
+
+/* <> Color Variables */
+html {
+  
+  --background-color: hsl(36.5, 30%, 5.5%);
+  --light-blue: rgb(155, 162, 255);
+  --light-gray:hsl(236, 10%, 80%);
+  --other:hsl(236, 15%, 50%);
+  --gold: rgb(255,155,0);
+  --dark-purple: rgb(120,60,120);
+  --dark-purple-trans: rgba(120,60,120,0.5);;
+  --dark-red: rgb(204,96,96);
+  --pink: rgb(255,182,251);
+  --beige: hsl(60, 9%, 68%);
+  --green: rgb(125,220,152);
+  --brightred:rgb(213,1,0);
+
+}
+
+@font-face {
+  font-family: 'okuda';
+  src: url('fonts/Okuda-A5PL.ttf');
+}
+
+@font-face {
+  font-family: 'tng';
+  src: url('fonts/ufonts.com_star-trek-tng-title.ttf');
+}
+
+/*  <> Color Schemes */
+.gold-back {
+    background-color: var(--gold);
+    color:var(--background-color);
+} .gold-back a { color:var(--background-color);}
+tr.gold-back td, thead tr td {
+  background-color: var(--gold);
+  color:var(--background-color);
+}
+
+.back-gold {
+  background-color: var(--background-color);
+  border: 2px solid var(--background-color);
+  color:var(--gold);
+} .back-gold a { color:var(--gold);}
+
+.blue-back,.nav-link,input[type="button"] {
+  background-color: var(--light-blue);
+  color:var(--background-color);
+} .blue-back a { color:var(--background-color); }
+tr.blue-back td {
+  background-color: var(--light-blue);
+  color:var(--background-color);
+}
+
+input[type="submit"] {
+  color: var(--green);
+  border-color: var(--green);
+  text-align: center;
+}
+
+.back-blue,.view-log,h1 {
+  background-color: var(--background-color);
+  border: 2px solid var(--background-color);
+  color:var(--light-blue);
+} .back-blue a { color:var(--light-blue);}
+
+input,textarea { 
+  border-color: var(--gold);
+  color: var(--light-gray);
+  background-color: rgba(0,0,0,0.5);
+}
+
+
+.back-purple {
+  background-color: var(--background-color);
+  border: 2px solid var(--background-color);
+  color:var(--dark-purple);
+} .back-purple a { color:var(--dark-purple);}
+
+.purple-back {
+  background-color: var(--dark-purple);
+  border: 2px solid var(--background-color);
+  color:var(--background-color);
+} .purple-back a { color:var(--background-color); }
+
+.gray-back {
+  background-color: var(--light-gray);
+  color:var(--background-color); 
+} .gray-back a { color:var(--background-color);}
+tr.gray-back td{
+  background-color: var(--light-gray);
+  color:var(--background-color); 
+} tr.gray-back td a {
+  color:var(--background-color);
+}
+
+.back-gray { 
+  background-color: var(--background-color);
+  border: 2px solid var(--background-color);
+  color:var(--light-gray);
+} .black-gray a { color:var(--light-gray); }
+tr.back-gray td {
+  border: 2px solid var(--background-color);
+  color:var(--light-gray);
+} tr.back-gray td a { color:var(--light-gray); }
+
+.highlight {
+  background-color: var(--pink);
+  color:var(--background-color);
+} .highlight a { color:var(--background-color);}
+tr.highlight td {
+  background-color: var(--pink);
+  border: 2px solid var(--background-color);
+  color:var(--background-color);
+}
+
+.red-back,input[value='Reset'] {
+  background-color: var(--dark-red);
+  color:var(--background-color); 
+} .red-back a { color:var(--background-color);}
+tr.red-back td{
+  background-color: var(--dark-red);
+  color:var(--background-color); 
+}
+
+.alert,.red-alert {
+  background-color: var(--brightred);
+  color:var(--background-color);
+} .alert a { color:var(--background-color);}
+tr.alert td {
+  background-color: var(--brightred);
+  color:var(--background-color);
+}
+
+.green-back {
+  background-color: var(--green);
+  color:var(--background-color);
+} .green a { color:var(--background-color);}
+tr.green td {
+  background-color: var(--green);
+  border: 2px solid var(--background-color);
+  color:var(--background-color);
+}
+
+.back-green {
+  background-color: var(--background-color);
+  color: var(--green);
+} .back-green a { color:var(--green);}
+
+.back-light { 
+  border: 2px solid var(--background-color);
+  color:var(--light);
+} .black-light a { color:var(--light); }
+tr.back-light td {
+  border: 2px solid var(--background-color);
+  color:var(--light);
+}
+
+input:focus,input:hover,
+textarea:focus,textarea:hover,
+select:focus,select:hover {
+  border-color: var(--light-blue);
+}
+
+/* <> General HTML component classes */
+body { 
+  padding: 30px 3%;
+  color: var(--gold);
+  
+  background-color: var(--background-color);
+  margin: auto;  
+  font-family: 'okuda',"courier new";
+  font-size: x-large;
+}
+
+b {
+  color: var(--brightred);
+}
+
+h1 { font-family: 'tng','okuda',monospace;}
+
+h3 { color: var(--light);}
+
+hr {
+  color: var(--gold);
+  height: 5px;
+  background-color: var(--gold);
+ } 
+ 
+ a {
+  text-decoration-color: var(--green) !important;
+}
+
+
+/* <> Table header */
+table { width:100%; }
+
+th:first-child {
+  --top-left-corner:15px 0 0 0;
+  border-radius: var(--top-left-corner);
+}
+
+th:last-child {
+  border-radius: 0 15px 0 0;
+}
+
+td:first-child {
+  border-radius: 15px 0px 0px 15px;
+}
+
+td:last-child {
+  border-radius: 0px 15px 15px 0px;
+}
+
+th:only-child{
+  border-radius: 15px 15px 0 0;
+}
+
+/* thead tr td { background-color: var(--dark-purple-trans);}
+tr td {background-color: black;}
+
+tr { background-color: var(--background-color) !important;} */
+
+
+/* <> Table body */
+
+/* Zebra stripes */
+/* tbody tr:nth-child(even){} */ 
+
+td {
+  padding:5px;
+}
+
+/* <> Utility classes */
+.half {max-width: 50%;}
+.float-left { float:left; }
+.float-right { float: right; }
+.padded { padding: 15px;}
+.uniform-pad { padding: 10px;}
+.text-pad,td,input,.nav-link { padding: 10px}
+td input {margin: -10px;}
+.rounded { border-radius: 10px;}
+/* .squared { margin: 5px; padding: 10px; } */
+.round-left {border-radius: 15px 0px 0px 15px; }
+.round-right {border-radius: 0px 15px 15px 0px; }
+
+.full-width { width: 100%; }
+
+/* <> Images */
+
+.thumbnail {
+  width: 500px;
+}
+
+/* <> Form elements */
+
+.pane {
+  padding: 50px;
+  /* border: 2px solid red; */
+  float: left;
+}
+
+label {
+  cursor: pointer;
+  color: var(--light-blue);
+  margin: 10px;
+}
+
+div.hoirzontalField {
+  padding: 5px 0px;
+}
+
+input,textarea {
+  transition: all 1s;
+    font-family: inherit;
+    font-size: inherit;
+    width: 99%;
+    text-align: left;
+}
+
+textarea {
+  outline: none;
+  padding: 10px;
+  width: 300px;
+	height: 200px;
+}
+
+input[type='button'],input[type='submit'] {
+  width: 100%;
+}
+
+/* <> One-offs */
+nav {
+  margin-bottom: 25px;
+}
+
+.nav-link {
+  margin-right: 20px;
+}
+
+/* Added for showoff */
+
+.gradient {
+  background-image: linear-gradient(left white black);
+}
