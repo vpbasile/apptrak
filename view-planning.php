@@ -9,7 +9,7 @@ include "routine.html";
 
 echo h2("Applications that need action","apps","gold-back rounded");
 // <> Query: Applications that need action
-$sql_query = "SELECT * FROM `application` AS a LEFT JOIN `company` AS c ON a.`company` = c.`company_uid` WHERE DATE(`followup_date`) >= CURDATE() OR `applied_date`='0000-00-00' ORDER BY `a`.`applied_date` ASC, `priority` DESC;";
+$sql_query = "SELECT * FROM `application` AS a LEFT JOIN `company` AS c ON a.`company` = c.`company_uid` WHERE DATE(`followup_date`) >= CURDATE() OR `applied_date`='0000-00-00' ORDER BY `priority` DESC, `a`.`applied_date` ASC;";
 $query_result = loadSQLinfo("application",$sql_connection,$sql_query);
 
 
@@ -28,15 +28,8 @@ tableCell("Position Found","");
 closeTableHeader();
 
 // Get the next line
-foreach($query_result as $row) {
-    // arrayInfo($application_data);
-    $class_string = "";
-    $priority = $row['priority'];
-    if($priority>0) $class_string="back-gold";
-    if($priority==0) $class_string="back-blue";
-    if($priority==-1) $class_string="back-gray";
-    if($priority<-1) $class_string="back-purple";
-    openRow($class_string);
+foreach($query_result as $row) {    // Translate the priority into a class string
+    openRow(applicationPriorityClass($row['priority']));
     $application_uid = $row['application_uid'];
     tableCell(hyperlink($application_uid,"view-1-application.php?application_uid=".$application_uid,"application-link"),"uid");
     tableCell(hyperlink($row['position_title'],$row['position_url'],"position-link"),"position");

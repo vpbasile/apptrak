@@ -193,8 +193,16 @@ tr.blue-back td {
   color:var(--background-color);
 }
 
-input,input[type="submit"],textarea {
+input,textarea {
   color: var(--light-gray);
+  border-color: var(--green);
+  text-align: center;
+  background-color: rgba(0,0,0,0.5);
+
+}
+
+input[type="submit"] {
+  color: var(--green);
   border-color: var(--green);
   text-align: center;
   background-color: rgba(0,0,0,0.5);

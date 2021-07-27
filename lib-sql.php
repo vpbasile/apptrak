@@ -6,7 +6,7 @@ require_once "toaster.php";
 // $sql_connection is defined in lib-sql.php
 function loadSQLinfo($sql_table_name,$sql_connection,$sql_query) {
     $sql_table_temp = mysqli_query($sql_connection,$sql_query);
-    if($sql_table_temp===false){ die("SQL query failed."); }   
+    if($sql_table_temp===false){ die("SQL query failed: $sql_query"); }   
     $$sql_table_name = array(); // This is where we'll save everything
     // Load the application SQL table into $sql_table
     while ($row = mysqli_fetch_array($sql_table_temp, MYSQLI_ASSOC)) {

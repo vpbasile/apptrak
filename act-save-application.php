@@ -3,8 +3,6 @@
 include_once 'site-header.php';
 include_once 'lib-sql.php'; 
 
-// displayDescriptionList($_POST);
-
 $application_uid = quoted($_POST['application_uid']);
 $company_uid = quoted($_POST['company_uid']);
 $position_title = quoted($_POST['position_title']);
@@ -15,6 +13,7 @@ $cover_letter_url = quoted($_POST['cover_letter_url']);
 $followup_date = quoted($_POST['followup_date']);
 $where_found = quoted($_POST['where_found']);
 $priority = quoted($_POST['priority']);
+if($priority==="") $priority=1;
 $pros = quoted($_POST['pros_text']);
 $cons = quoted($_POST['cons_text']);
 $tech = quoted($_POST['tech_text']);

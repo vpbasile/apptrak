@@ -9,13 +9,13 @@ if(isset($_GET['application_uid'])){ $application_uid = $_GET['application_uid']
     echo "<h2>No id selected.</h2>";
 }
 
-    $sql_query = "SELECT * FROM `application` as a LEFT JOIN `company` as c ON a.`company` = c.`company_uid` LEFT JOIN `person` as p ON a.`followup_person` = p.`person_uid` where `application_uid`=$application_uid;";
+    $sql_query = "SELECT * FROM `application` as a LEFT JOIN `company` as c ON a.`company` = c.`company_uid` WHERE `application_uid`=$application_uid;";
     $query_result = loadSQLinfo("application",$sql_connection,$sql_query);
     foreach($query_result as $row){
         echo textFieldInvisible('application_uid',$row['application_uid']);
         echo textFieldInvisible('company_uid',$row['company_uid']);
-        h2($row['company_name'],"rounded gold-back");
-        p($row['city'].", ".$row['state'],"location","rounded back-gold");
+        echo h2($row['company_name'],"","rounded gold-back");
+        echo p($row['city'].", ".$row['state'],"location","rounded back-gold");
         openDiv("","","pane float-left");
             openDiv("","button_div","");
             echo button("rounded");
