@@ -4,7 +4,7 @@ $lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmo
 
 // <> Individual structure items
 function hyperlink($text,$url,$class_string="",$style_string=""){ return "<a class='$class_string' style='$style_string' href='$url'>$text.</a>"; }
-function h2($string,$class_string="",$style_string=""){ return "<h2 class='$class_string' style='$style_string'>$string</h2>"; }
+function h2($string,$id="",$class_string="",$style_string=""){ return "<h2 id='$id' class='$class_string' style='$style_string'>$string</h2>"; }
 function h3($string,$class_string="",$style_string=""){ return "<h3 class='$class_string' style='$style_string'>$string</h3>"; }
 
 
@@ -19,7 +19,10 @@ function openDiv($header="",$id="",$class_string="",$style_string=""){
 function closeDiv() {echo "</div>";}
 
 // <> HTML Tables
-function openTableHeader(){ echo "<table><thead>"; }
+function openTableHeader($caption_string){ 
+    if($caption_string!==""){ $caption_string = "<caption>$caption_string</caption>";}
+    return "<table>$caption_string<thead><tr>"; 
+}
 function closeTableHeader(){ echo "</tr></thead><tbody>"; }
 function closeTable() { echo "</tbody></table>"; }
 function openRow($class_string="",$style_string=""){ echo "<tr class='$class_string' style='$style_string'>"; }
@@ -84,23 +87,6 @@ function coverLetterLink($url){
     if ($url!=""){
         return hyperlink("Cover letter",$url,"cover-letter");
     } else return "n/a";
-}
-
-// <> Application Table
-function applicationTableHeader() {
-    openTableHeader();
-    openRow("table-header");
-    tableCell("UID","");
-    tableCell("Company","");
-    tableCell("Location","");
-    tableCell("Position-title","");
-    tableCell("What's next","");
-    tableCell("Applied Date","");
-    tableCell("Cover letter URL","");
-    tableCell("Follow-up date","");
-    tableCell("Follow-up person ","");
-    tableCell("Where found","");
-    closeRow();
 }
 
 function writePersonRow($array){

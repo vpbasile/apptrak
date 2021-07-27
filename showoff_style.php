@@ -1,29 +1,10 @@
-<!DOCTYPE html>
-<html lang="en-us">
-<head>
-<meta http-equiv="content-type" content="text/html; charset=utf-8">
-<title>Stylesheet Showoff</title>
-<meta name="description" content="">
-<meta name="author" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="lcars.css">
-<style>
-    body {color:var(--light-gray);}
-    h2 {font-family: 'tng';}
-</style>
-</head>
-<body>
 <?php 
-
+include "site-header.php";
 require_once "lib-structure.php";
-
-
-
-echo "<hr>";
 
 // <> 1 Font Definitions 
 
-echo h2("<>1 Font Definitions");
+echo h2("<>1 Font Definitions","font-definitions");
 defineFont("okuda","Okuda-A5PL.ttf");
 defineFont("tng","ufonts.com_star-trek-tng-title.ttf");
 
@@ -35,7 +16,7 @@ function defineFont($font_name,$url){
 
 // <> 2 Color Definitions
 echo h2("<>2 Color Definitions");
-openTableHeader();
+echo openTableHeader("");
 closeTableHeader();
 defineColor("--old-background-color","rgb(28,0,13)");
 defineColor("--background-color","hsl(36.5, 100%, 5.5%)");

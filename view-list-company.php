@@ -12,7 +12,7 @@ if($query_result===null){
     die();
 }
 
-openTableHeader();
+echo openTableHeader($sql_query);
 tableCell("Company Name");
 tableCell("City");
 tableCell("State");

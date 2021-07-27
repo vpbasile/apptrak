@@ -27,12 +27,153 @@ html {
   src: url('fonts/ufonts.com_star-trek-tng-title.ttf');
 }
 
+/* <> General HTML component classes */
+body { 
+  padding: 30px 3%;
+  color: var(--light-gray);
+  background-color: var(--background-color);
+  margin: auto;  
+  font-family: 'okuda',"courier new";
+  font-size: x-large;
+}
+
+b {
+  color: var(--brightred);
+}
+
+h1 { font-family: 'tng','okuda',monospace;
+  color:var(--gold);
+}
+
+h3 { color: var(--light);}
+
+hr {
+  color: var(--gold);
+  height: 5px;
+  background-color: var(--gold);
+ } 
+ 
+ a,a:visited {
+   color: var(--light-gray);
+  text-decoration-color: var(--green) !important;
+}
+
+.nav-link,.nav-link a,.nav-link a:visited {
+  background-color: var(--light-blue);
+  color:var(--background-color) !important;
+}
+
+/* <> Table header */
+table { width:100%; }
+
+th:first-child {
+  --top-left-corner:15px 0 0 0;
+  border-radius: var(--top-left-corner);
+}
+
+th:last-child {
+  border-radius: 0 15px 0 0;
+}
+
+td:first-child {
+  border-radius: 15px 0px 0px 15px;
+}
+
+td:last-child {
+  border-radius: 0px 15px 15px 0px;
+}
+
+th:only-child{
+  border-radius: 15px 15px 0 0;
+}
+
+/* thead tr td { background-color: var(--dark-purple-trans);}
+tr td {background-color: black;}
+
+tr { background-color: var(--background-color) !important;} */
+
+
+/* <> Table body */
+
+/* Zebra stripes */
+/* tbody tr:nth-child(even){} */ 
+
+td {
+  padding:5px;
+  background-image: linear-gradient(black, hsla(0,0%,40%,0.3), black);
+} 
+
+thead tr td {
+  background-color: var(--dark-purple);
+  border: 2px solid var(--background-color);
+  color:var(--background-color);
+  background-image: initial;
+}
+
+/* <> Utility classes */
+.half {max-width: 50%;}
+.float-left { float:left; }
+.float-right { float: right; }
+.padded,caption,h2,h3,h4,h5 { padding: 15px;}
+.uniform-pad { padding: 10px;}
+.text-pad,td,input,.nav-link { padding: 10px}
+td input {margin: -10px;}
+.rounded,nav,caption,h2,h3,h4,h5 { border-radius: 10px;}
+/* .squared { margin: 5px; padding: 10px; } */
+.round-left {border-radius: 15px 0px 0px 15px; }
+.round-right {border-radius: 0px 15px 15px 0px; }
+
+.full-width { width: 100%; }
+
+/* <> Images */
+
+.thumbnail {
+  width: 500px;
+}
+
+/* <> Form elements */
+
+.pane {
+  padding: 50px;
+  /* border: 2px solid red; */
+  float: left;
+}
+
+label {
+  cursor: pointer;
+  color: var(--gold);
+  margin: 10px;
+}
+
+div.hoirzontalField {
+  padding: 5px 0px;
+}
+
+input,textarea {
+  transition: all 1s;
+    font-family: inherit;
+    font-size: inherit;
+    width: 99%;
+    text-align: left;
+}
+
+textarea {
+  outline: none;
+  padding: 10px;
+  width: 300px;
+	height: 200px;
+}
+
+input[type='button'],input[type='submit'] {
+  width: 100%;
+}
+
 /*  <> Color Schemes */
 .gold-back {
     background-color: var(--gold);
     color:var(--background-color);
 } .gold-back a { color:var(--background-color);}
-tr.gold-back td, thead tr td {
+tr.gold-back td {
   background-color: var(--gold);
   color:var(--background-color);
 }
@@ -43,7 +184,7 @@ tr.gold-back td, thead tr td {
   color:var(--gold);
 } .back-gold a { color:var(--gold);}
 
-.blue-back,.nav-link,input[type="button"] {
+.blue-back,.nav-link,.nav-link a,.nav-link a:visited {
   background-color: var(--light-blue);
   color:var(--background-color);
 } .blue-back a { color:var(--background-color); }
@@ -52,32 +193,27 @@ tr.blue-back td {
   color:var(--background-color);
 }
 
-input[type="submit"] {
-  color: var(--green);
+input,input[type="submit"],textarea {
+  color: var(--light-gray);
   border-color: var(--green);
   text-align: center;
+  background-color: rgba(0,0,0,0.5);
+
 }
 
-.back-blue,.view-log,h1 {
+.back-blue,.view-log {
   background-color: var(--background-color);
   border: 2px solid var(--background-color);
   color:var(--light-blue);
 } .back-blue a { color:var(--light-blue);}
 
-input,textarea { 
-  border-color: var(--gold);
-  color: var(--light-gray);
-  background-color: rgba(0,0,0,0.5);
-}
-
-
-.back-purple {
+.back-purple,caption {
   background-color: var(--background-color);
   border: 2px solid var(--background-color);
   color:var(--dark-purple);
 } .back-purple a { color:var(--dark-purple);}
 
-.purple-back {
+.purple-back, thead tr td {
   background-color: var(--dark-purple);
   border: 2px solid var(--background-color);
   color:var(--background-color);
@@ -162,136 +298,11 @@ select:focus,select:hover {
   border-color: var(--light-blue);
 }
 
-/* <> General HTML component classes */
-body { 
-  padding: 30px 3%;
-  color: var(--gold);
-  
-  background-color: var(--background-color);
-  margin: auto;  
-  font-family: 'okuda',"courier new";
-  font-size: x-large;
-}
-
-b {
-  color: var(--brightred);
-}
-
-h1 { font-family: 'tng','okuda',monospace;}
-
-h3 { color: var(--light);}
-
-hr {
-  color: var(--gold);
-  height: 5px;
-  background-color: var(--gold);
- } 
- 
- a {
-  text-decoration-color: var(--green) !important;
-}
-
-
-/* <> Table header */
-table { width:100%; }
-
-th:first-child {
-  --top-left-corner:15px 0 0 0;
-  border-radius: var(--top-left-corner);
-}
-
-th:last-child {
-  border-radius: 0 15px 0 0;
-}
-
-td:first-child {
-  border-radius: 15px 0px 0px 15px;
-}
-
-td:last-child {
-  border-radius: 0px 15px 15px 0px;
-}
-
-th:only-child{
-  border-radius: 15px 15px 0 0;
-}
-
-/* thead tr td { background-color: var(--dark-purple-trans);}
-tr td {background-color: black;}
-
-tr { background-color: var(--background-color) !important;} */
-
-
-/* <> Table body */
-
-/* Zebra stripes */
-/* tbody tr:nth-child(even){} */ 
-
-td {
-  padding:5px;
-}
-
-/* <> Utility classes */
-.half {max-width: 50%;}
-.float-left { float:left; }
-.float-right { float: right; }
-.padded { padding: 15px;}
-.uniform-pad { padding: 10px;}
-.text-pad,td,input,.nav-link { padding: 10px}
-td input {margin: -10px;}
-.rounded { border-radius: 10px;}
-/* .squared { margin: 5px; padding: 10px; } */
-.round-left {border-radius: 15px 0px 0px 15px; }
-.round-right {border-radius: 0px 15px 15px 0px; }
-
-.full-width { width: 100%; }
-
-/* <> Images */
-
-.thumbnail {
-  width: 500px;
-}
-
-/* <> Form elements */
-
-.pane {
-  padding: 50px;
-  /* border: 2px solid red; */
-  float: left;
-}
-
-label {
-  cursor: pointer;
-  color: var(--light-blue);
-  margin: 10px;
-}
-
-div.hoirzontalField {
-  padding: 5px 0px;
-}
-
-input,textarea {
-  transition: all 1s;
-    font-family: inherit;
-    font-size: inherit;
-    width: 99%;
-    text-align: left;
-}
-
-textarea {
-  outline: none;
-  padding: 10px;
-  width: 300px;
-	height: 200px;
-}
-
-input[type='button'],input[type='submit'] {
-  width: 100%;
-}
-
 /* <> One-offs */
 nav {
   margin-bottom: 25px;
+  border-bottom: 5px solid var(--light-gray);
+  padding-bottom: 15px;
 }
 
 .nav-link {
@@ -301,5 +312,6 @@ nav {
 /* Added for showoff */
 
 .gradient {
-  background-image: linear-gradient(left white black);
+  background-image: linear-gradient(white black);
+
 }

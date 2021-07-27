@@ -3,7 +3,7 @@
 require_once "site-header.php";
 
 // <>Main fuction - Do the things !!
-$sql_query = "SELECT * FROM `application` as a LEFT JOIN `company` as c ON a.`company` = c.`company_uid` LEFT JOIN `person` as p ON a.`followup_person` = p.`person_uid` ORDER BY `priority` DESC";
+$sql_query = "SELECT * FROM `application` as a LEFT JOIN `company` as c ON a.`company` = c.`company_uid` ORDER BY `a`.`applied_date` ASC, `priority` DESC";
 $query_result = loadSQLinfo("application",$sql_connection,$sql_query);
 // echo "<p>";
 // var_dump($query_result);
@@ -11,7 +11,7 @@ $query_result = loadSQLinfo("application",$sql_connection,$sql_query);
 
     // <> Display all applications in a table
 
-openTableHeader();
+echo openTableHeader($sql_query);
 tableCell("App ID","uid");
 tableCell("Position","position_title");
 tableCell("Company","company_name");
@@ -20,8 +20,6 @@ tableCell("Next Steps","");
 tableCell("Applied Date","");
 tableCell("Cover Letter","");
 tableCell("Follow-up Date","");
-tableCell("Follow-up Person","");
-tableCell("Phone","");
 tableCell("Position Found","");
 // tableCell(,""); 
 closeTableHeader();
@@ -29,13 +27,13 @@ closeTableHeader();
 
 // Get the next line
 foreach($query_result as $row) {
-
     // arrayInfo($application_data);
-    switch($row['priority']) {
-        case 1: $class_string = "back-gold"; break;
-        case -1: $class_string = "back-gray"; break;
-        default: $class_string = "back-blue"; break;
-    }
+    $class_string = "";
+    $priority = $row['priority'];
+    if($priority>0) $class_string="back-gold";
+    if($priority==0) $class_string="back-blue";
+    if($priority==-1) $class_string="back-gray";
+    if($priority<-1) $class_string="back-purple";
     openRow($class_string);
     $application_uid = $row['application_uid'];
     tableCell(hyperlink($application_uid,"view-1-application.php?application_uid=".$application_uid,"application-link"),"uid");
@@ -47,14 +45,13 @@ foreach($query_result as $row) {
     tableCell($row['applied_date'],"");
     tableCell($row['cover_letter_url'],"");
     tableCell($row['followup_date'],"");
-    tableCell($row['person_name'],"");
-    tableCell($row['phone'],"");
     tableCell($row['position_found'],"");
     closeRow();
 
 }
 
 closeTable();
+echo p($sql_query,"","view-log");
 
 
 
