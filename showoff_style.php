@@ -47,20 +47,17 @@ function defineColor($var_name,$color_value){
 
 // <>3 <> Color diads
 echo h2("<>3 Color diads");
+defineColorDiad("back-gray","var(--background-color)","var(--light-gray)");
+defineColorDiad("green-text","var(--background-color)","var(--green)");
 defineColorDiad("gold-back","var(--gold)","var(--background-color)");
 defineColorDiad("back-gold","var(--background-color)","var(--gold)");
 defineColorDiad("blue-back","var(--light-blue","var(--background-color");
 defineColorDiad("back-blue","var(--background-color)","var(--light-blue)");
 defineColorDiad("purple-back","var(--dark-purple)","var(--background-color)");
 defineColorDiad("back-purple","var(--background-color)","var(--dark-purple)");
-defineColorDiad("gray-back","var(--light-gray)","var(--background-color)");
-defineColorDiad("back-gray","var(--background-color)","var(--light-gray)");
 defineColorDiad("highlight","var(--pink)","var(--background-color)");
 defineColorDiad("red-back","","var(--background-color)");
 defineColorDiad("red-alert","","var(--background-color)");
-defineColorDiad("green-back","var(--green)","var(--background-color)");
-defineColorDiad("back-green","var(--background-color)","var(--green)");
-
 function defineColorDiad($class_name,$background,$color){
     $css = "$class_name, $class_name a, tr.$class_name td { background-color:$background; color:$color; } ";
     echo p($css,"",$class_name);

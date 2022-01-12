@@ -3,7 +3,7 @@
 $lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 // <> Individual structure items
-function hyperlink($text,$url,$class_string="",$style_string=""){ return "<a class='$class_string' style='$style_string' href='$url'>$text.</a>"; }
+function hyperlink($text,$url,$class_string="",$style_string=""){ return "<a class='$class_string' style='$style_string' href='$url'>$text</a>"; }
 function h2($string,$id="",$class_string="",$style_string=""){ return "<h2 id='$id' class='$class_string' style='$style_string'>$string</h2>"; }
 function h3($string,$class_string="",$style_string=""){ return "<h3 class='$class_string' style='$style_string'>$string</h3>"; }
 
@@ -65,9 +65,16 @@ function textArea($labelText,$contents,$placeholder,$fieldName,$class) {
 function dateField($labelText,$value,$placeholder,$fieldName,$class){
     return "<label for='".$fieldName."'>".$labelText."</label><input type='date' name='".$fieldName."' value='".$value."' class='".$class."' placeholder='.$placeholder.'>";
 }
-function button($class=""){
-        return "<input type='submit' class='$class'>";
-        // return "<input type='button' value='Reset' class='rounded blue-back'>";
+function button($type="button",$value="Button Text",$class=""){
+        return "<input type='$type' value='$value' class='$class'>";
+}
+function deleteButton($deleteWhat,$class_string=""){
+    $return_string = "
+    <form action='url'>
+<button type='submit' class='shiny $class_string'>Delete $deleteWhat</button>
+</form>
+";
+    return $return_string;
 }
 function closeForm(){echo "</form>";}
 // function wholeForm($table_name){

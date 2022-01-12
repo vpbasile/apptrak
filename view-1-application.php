@@ -18,7 +18,7 @@ if(isset($_GET['application_uid'])){ $application_uid = $_GET['application_uid']
         echo p($row['city'].", ".$row['state'],"location","rounded back-gold");
         openDiv("","","pane float-left");
             openDiv("","button_div","");
-            echo button("rounded");
+            echo button("submit","Save changes","rounded");
             closeDiv();
             openDiv("","position_title","hoirzontalField");
                 echo textField("Position Title",$row['position_title'],"Position Title",'position_title',"rounded bordered grayed");

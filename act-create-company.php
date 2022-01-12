@@ -4,7 +4,7 @@ include_once "site-header.php";
 $company_name = quoted($_POST['company_name']);
 $city = quoted($_POST['city']);
 $state = quoted($_POST['state']);
-$priority = quoted($_POST['priority']);
+$priority = quoted(1);
 
 $sql_query = "INSERT INTO `company` (`company_name`,`city`,`state`,`class`) 
 VALUES ($company_name,$city,$state,$priority); ";

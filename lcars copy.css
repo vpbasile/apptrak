@@ -100,7 +100,6 @@ tr { background-color: var(--background-color) !important;} */
 
 td {
   padding:5px;
-  background-image: linear-gradient(black, hsla(0,0%,40%,0.3), black);
 } 
 
 thead tr td {
@@ -114,16 +113,27 @@ thead tr td {
 .half {max-width: 50%;}
 .float-left { float:left; }
 .float-right { float: right; }
-.padded,caption,h2,h3,h4,h5 { padding: 15px;}
-.uniform-pad { padding: 10px;}
-.text-pad,td,input,.nav-link { padding: 10px}
-td input {margin: -10px;}
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 .rounded,nav,caption,h2,h3,h4,h5 { border-radius: 10px;}
+.padded,caption,h2,h3,h4,h5 { padding: 15px;}
+.vert-padded { padding: 15px 0px; }
+.bottom-padded { padding-bottom: 15px; }
+.text-pad,td,input,button,.nav-link { padding: 10px}
+td input, td button {margin: -10px;}
 /* .squared { margin: 5px; padding: 10px; } */
 .round-left {border-radius: 15px 0px 0px 15px; }
 .round-right {border-radius: 0px 15px 15px 0px; }
 
 .full-width { width: 100%; }
+.shrinky {
+  max-width: max-content;
+}
+
+.shiny,td { background-image: linear-gradient(black, hsla(0,0%,40%,0.3)); }
 
 /* <> Images */
 
@@ -149,8 +159,8 @@ div.hoirzontalField {
   padding: 5px 0px;
 }
 
-input,textarea {
-  transition: all 1s;
+input,textarea,button {
+  /* transition: all 1s; */
     font-family: inherit;
     font-size: inherit;
     width: 99%;
@@ -164,7 +174,7 @@ textarea {
 	height: 200px;
 }
 
-input[type='button'],input[type='submit'] {
+input[type='button'],input[type='submit'],button {
   width: 100%;
 }
 
@@ -193,7 +203,7 @@ tr.blue-back td {
   color:var(--background-color);
 }
 
-input,textarea {
+input,textarea,button {
   color: var(--light-gray);
   border-color: var(--green);
   text-align: center;
@@ -209,6 +219,12 @@ input[type="submit"] {
 
 }
 
+input[type="button"],button {
+  color: var(--dark-red);
+  border-color: var(--dark-red);
+ }
+ 
+
 .back-blue,.view-log {
   background-color: var(--background-color);
   border: 2px solid var(--background-color);
@@ -221,22 +237,11 @@ input[type="submit"] {
   color:var(--dark-purple);
 } .back-purple a { color:var(--dark-purple);}
 
-.purple-back, thead tr td {
+h3,.purple-back, thead tr td {
   background-color: var(--dark-purple);
   border: 2px solid var(--background-color);
   color:var(--background-color);
 } .purple-back a { color:var(--background-color); }
-
-.gray-back {
-  background-color: var(--light-gray);
-  color:var(--background-color); 
-} .gray-back a { color:var(--background-color);}
-tr.gray-back td{
-  background-color: var(--light-gray);
-  color:var(--background-color); 
-} tr.gray-back td a {
-  color:var(--background-color);
-}
 
 .back-gray { 
   background-color: var(--background-color);
@@ -270,26 +275,17 @@ tr.red-back td{
 .alert,.red-alert {
   background-color: var(--brightred);
   color:var(--background-color);
+  border-color: var(--background-color);
 } .alert a { color:var(--background-color);}
 tr.alert td {
   background-color: var(--brightred);
   color:var(--background-color);
 }
 
-.green-back {
-  background-color: var(--green);
-  color:var(--background-color);
-} .green a { color:var(--background-color);}
-tr.green td {
-  background-color: var(--green);
-  border: 2px solid var(--background-color);
-  color:var(--background-color);
-}
-
-.back-green {
+.green-text {
   background-color: var(--background-color);
   color: var(--green);
-} .back-green a { color:var(--green);}
+} .green-text a { color:var(--green);}
 
 .back-light { 
   border: 2px solid var(--background-color);
@@ -317,9 +313,17 @@ nav {
   margin-right: 20px;
 }
 
+#create-company-button {
+  background-color: var(--green);
+  color: black;
+ }
+ 
+
 /* Added for showoff */
 
-.gradient {
-  background-image: linear-gradient(white black);
 
-}
+div.list-container {
+  border: 2px solid var(--dark-purple-trans);
+  padding-top: 0px;
+ }
+ 
